@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 env:
   # Update the line below to reflect your appropriate AWS_REGION
-  AWS_REGION : "us-west-2"
+  AWS_REGION : "us-east-1"
 # Permission can be added at job level or workflow level    
 permissions:
       id-token: write   # This is required for requesting the JWT
