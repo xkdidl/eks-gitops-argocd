@@ -1,0 +1,23 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: eks-gitops
+  region: ${AWS_REGION}
+  version: "${K8S_VERSION}"
+
+availabilityZones: ["${AZ1}", "${AZ2}", "${AZ3}"]
+
+managedNodeGroups:
+- name: nodegroup
+  desiredCapacity: 3
+  instanceType: t3.small
+  ssh:
+    enableSsm: true
+
+# To enable all of the control plane logs, uncomment below:
+# cloudWatch:
+#  clusterLogging:
+#    enableTypes: ["*"]
+secretsEncryption:
+  keyARN: ${KEY_ARN}
